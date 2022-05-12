@@ -2,8 +2,10 @@ import axios from 'axios'
 
 const fetchAllComics = async () => {
   try {
-    // const response = await axios.get('https://thierry-api-marvel.herokuapp.com/')
-    const response = await axios.get('http://localhost:4000/comics')
+    const response = await axios.get(
+      'https://thierry-api-marvel.herokuapp.com/comics',
+    )
+    // const response = await axios.get('http://localhost:4000/comics')
     return await response.data
     // console.log('response ===', response)
   } catch (error) {
@@ -12,8 +14,10 @@ const fetchAllComics = async () => {
 }
 const fetchComic = async id => {
   try {
-    // const response = await axios.get(`https://thierry-api-marvel.herokuapp.com/${id}`)
-    const response = await axios.get(`http://localhost:4000/comic/${id}`)
+    const response = await axios.get(
+      `https://thierry-api-marvel.herokuapp.com/${id}`,
+    )
+    // const response = await axios.get(`http://localhost:4000/comic/${id}`)
     return await response.data
     // console.log('response ===', response)
   } catch (error) {
@@ -27,11 +31,13 @@ const fetchAllCharacters = async searchCharacters => {
     // const response = await axios.get('https://lereacteur-marvel-api.herokuapp.com/characters')
     if (searchCharacters) {
       const response = await axios.get(
-        `http://localhost:4000/searchCharacters?name=${searchCharacters}`,
+        `https://thierry-api-marvel.herokuapp.com/searchCharacters?name=${searchCharacters}`,
+        // `http://localhost:4000/searchCharacters?name=${searchCharacters}`,
       )
       return await response.data
     } else {
-      const response = await axios.get('http://localhost:4000/characters')
+      const response = await axios.get('https://thierry-api-marvel.herokuapp.com/characters')
+    //   const response = await axios.get('http://localhost:4000/characters')
       return await response.data
     }
   } catch (error) {
@@ -43,7 +49,8 @@ const fetchAllCharacters = async searchCharacters => {
 const fetchCharacter = async id => {
   try {
     // const response = await axios.get(`https://lereacteur-marvel-api.herokuapp.com/character/${id}`)
-    const response = await axios.get(`http://localhost:4000/character/${id}`)
+    const response = await axios.get(`https://thierry-api-marvel.herokuapp.com/character/${id}`)
+    // const response = await axios.get(`http://localhost:4000/character/${id}`)
     return await response.data
   } catch (error) {
     console.log(error)
