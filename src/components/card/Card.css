@@ -1,51 +1,43 @@
-.characters-header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.characters-card-container {
+.card {
+    /* width: 18rem; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    /* border: 1px solid black; */
 }
-
-/* .characters-card {
-    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-   
-}
-.characters-card figure {
-    
+.card figure {
+    /* width: 18rem; */
     height: 20rem;
     width: 18rem;
     text-align: center;
    
+    /* margin: 0 auto; */
+    /* object-fit: cover; */
 }
-.characters-card img {
+.card img {
     width: 18rem;
     height: 20rem;
     object-fit: cover;
    
 }
-.characters-card-description {
-    
+.card-description {
+    /* width: 18rem; */
     height: 15rem;
     width: 18rem;
     text-align: center;
-    border-top: 5px solid red;
+    /* border-top: 5px solid red; */
+    border-top: 5px solid blue;
     border-right: 1px solid black;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     margin-bottom: 1rem;
-    
+    /* text-decoration: none; */
 }
-.characters-card-description p {
+.card-description p {
     margin-top: 1rem;
 }
-.characters-card figure, .characters-card-description {
-    
+.card figure, .card-description {
+    /* margin: 0 1rem; */
     margin-left: 1rem;
     margin-right: 1rem;
-} */
+}

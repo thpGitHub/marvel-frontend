@@ -1,0 +1,10 @@
+.comics-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.comics-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
