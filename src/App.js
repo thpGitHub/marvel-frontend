@@ -1,6 +1,6 @@
 import './App.css'
-import {useState, useEffect} from 'react'
-import{BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import {useState, useEffect} from 'react'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 // ** Components **
 // import Home from './components/home'
 import Nav from './components/nav'
@@ -13,7 +13,7 @@ import Comics from './containers/comics'
 import Favoris from './containers/favoris'
 import NotFound from './containers/notFound'
 // ** Service ***
-import {fetchAllComics, fetchAllCharacters} from './services/thierry-api'
+// import {fetchAllComics, fetchAllCharacters} from './services/thierry-api'
 
 function App() {
   // const [comics, setComics] = useState()
@@ -23,15 +23,15 @@ function App() {
       <Header />
       <Nav />
       <Routes>
-        <Route path='/' element={<Characters />}/>
-        <Route path='/character/:id' element={<Character />}/>
-        <Route path='/comics' element={<Comics />}/>
-        <Route path='/comic/:id' element={<Comic />}/>
-        <Route path='/favoris' element={<Favoris />}/>
-        <Route path='*' element={<NotFound />}/>
+        <Route path="/" element={<Characters />} />
+        <Route path="/character/:id" element={<Character />} />
+        <Route path="/comics" element={<Comics />} />
+        <Route path="/comic/:id" element={<Comic />} />
+        <Route path="/favoris" element={<Favoris />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
-  );
+  )
 }
 
 export default App
