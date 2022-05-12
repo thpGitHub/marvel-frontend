@@ -14,5 +14,5 @@ export default function Comic() {
     })
   }, [id])
 
-  return <div>{comic.title}</div>
+  return <div>{comic?.title}</div>
 }

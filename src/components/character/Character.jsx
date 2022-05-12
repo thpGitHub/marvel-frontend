@@ -14,5 +14,5 @@ export default function Character() {
     })
   }, [id])
 
-  return <div>{character.name}</div>
+  return <div>{character?.name}</div>
 }
