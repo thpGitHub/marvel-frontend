@@ -1,3 +1,4 @@
+import './Characters.css'
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {fetchAllCharacters} from 'services/thierry-api'
@@ -5,7 +6,7 @@ import {fetchAllCharacters} from 'services/thierry-api'
 
 export default function Characters() {
   const [characters, setCharacters] = useState([])
-//   const [isLoading, setIsLoading] = useState(true)
+  //   const [isLoading, setIsLoading] = useState(true)
   const [searchCharacters, setSearchCharacters] = useState('')
 
   useEffect(() => {
@@ -19,22 +20,36 @@ export default function Characters() {
   }
 
   return (
-    <div>
-      <h2>MARVEL CHARACTERS LIST</h2>
-      <input
-        type="search"
-        placeholder="SEARCH"
-        value={searchCharacters}
-        onChange={handleChangeInput}
-      />
-      <div>
+    <div className="characters-container">
+      <div className="characters-header">
+        <h2>MARVEL CHARACTERS LIST</h2>
+        <input
+          type="search"
+          placeholder="SEARCH"
+          value={searchCharacters}
+          onChange={handleChangeInput}
+        />
+      </div>
+      <div className="characters-card">
         {characters?.results?.map(character => {
           return (
-            <div key={character._id}>
-              <Link to={`/character/${character._id}`}>
-                <div>{character.name}</div>
-              </Link>
-            </div>
+            //   thumbnail": {
+            //     "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+            //     "extension": "jpg"
+            // },
+            <Link to={`/character/${character?._id}`} key={character?._id}>
+              <figure>
+                <img
+                  src={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
+                  alt="figure character"
+                />
+              </figure>
+              <div className="characters-card-description">
+                <span>{character?.name}</span>
+                <p className='description'>{character?.description}</p>
+              </div>
+            </Link>
+            // </div>
           )
         })}
       </div>
