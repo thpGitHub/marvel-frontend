@@ -15,7 +15,7 @@ const fetchAllComics = async () => {
 const fetchComic = async id => {
   try {
     const response = await axios.get(
-      `https://thierry-api-marvel.herokuapp.com/${id}`,
+      `https://thierry-api-marvel.herokuapp.com/comic/${id}`,
     )
     // const response = await axios.get(`http://localhost:4000/comic/${id}`)
     return await response.data
@@ -70,3 +70,6 @@ export {fetchAllComics, fetchAllCharacters, fetchCharacter, fetchComic}
 //         console.log(error);
 //     }
 // }
+
+
+// https://thierry-api-marvel.herokuapp.com/5fce13e078edeb0017c92dbb
