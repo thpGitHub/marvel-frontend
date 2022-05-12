@@ -1,21 +1,15 @@
-import React from 'react'
+import './Nav.css'
 import {Link} from 'react-router-dom'
 
 export default function Nav() {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to={'/'}>Personnages</Link>
-        </li>
-        <li>
-          <Link to={'/comics'}>Comics</Link>
-        </li>
-        <li>
-          <Link to={'/favoris'}>Favoris</Link>
-        </li>
-      </ul>
-    </div>
+    <nav className='nav-container'>
+      <Link className='link' to={'/'}>Personnages</Link>
+
+      <Link className='link' to={'/comics'}>Comics</Link>
+
+      <Link className='link' to={'/favoris'}>Favoris</Link>
+    </nav>
   )
 }
 //personnages, comics, favoris

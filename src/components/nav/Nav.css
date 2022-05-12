@@ -1,0 +1,16 @@
+.nav-container {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #202020;
+}
+.link {
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 0 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+
+}
