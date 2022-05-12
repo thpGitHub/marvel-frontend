@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import {fetchCharacter} from '../../services/thierry-api'
+import {fetchCharacter} from 'services/thierry-api.js'
+// import {fetchCharacter} from '../../services/thierry-api'
 
 export default function Character() {
   const {id} = useParams()

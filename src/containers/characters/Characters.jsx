@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {fetchAllCharacters} from '../../services/thierry-api'
+import {fetchAllCharacters} from 'services/thierry-api'
+// import {fetchAllCharacters} from '../../services/thierry-api'
 
 export default function Characters() {
   const [characters, setCharacters] = useState([])

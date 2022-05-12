@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {fetchAllComics} from '../../services/thierry-api'
+import {fetchAllComics} from 'services/thierry-api'
+// import {fetchAllComics} from '../../services/thierry-api'
 
 export default function Comics() {
   const [comics, setComics] = useState([])
