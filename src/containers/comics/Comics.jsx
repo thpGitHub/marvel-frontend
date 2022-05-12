@@ -1,6 +1,6 @@
 import './Comics.css'
 import {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {fetchAllComics} from 'services/thierry-api'
 // import {fetchAllComics} from '../../services/thierry-api'
 import Card from 'components/card'

@@ -1,6 +1,6 @@
 import './Characters.css'
 import {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {fetchAllCharacters} from 'services/thierry-api'
 import Card from 'components/card/Card'
 // import {fetchAllCharacters} from '../../services/thierry-api'

@@ -2,6 +2,7 @@
     /* width: 18rem; */
     display: flex;
     flex-wrap: wrap;
+    margin-top: 2rem;
     justify-content: center;
     /* border: 1px solid black; */
 }
@@ -18,7 +19,14 @@
     width: 18rem;
     height: 20rem;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: transform 1.5s;
    
+}
+.card img:hover {
+    transform: scale(1.1);
+    
+    /* background-color: black; */
 }
 .card-description {
     /* width: 18rem; */
@@ -26,7 +34,7 @@
     width: 18rem;
     text-align: center;
     /* border-top: 5px solid red; */
-    border-top: 5px solid blue;
+    border-top: 5px solid #ec1d24;
     border-right: 1px solid black;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
