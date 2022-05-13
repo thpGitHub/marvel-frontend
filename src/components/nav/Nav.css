@@ -10,8 +10,11 @@
     cursor: pointer;
     padding: 0 1.8rem;
     font-size: 1.6rem;
+    transition: 1s;
     font-weight: 800;
     text-transform: uppercase;
     text-decoration: none;
-
+}
+.link:hover {
+    color: #ec1d24;
 }

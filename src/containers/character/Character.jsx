@@ -1,3 +1,4 @@
+import './Character.css'
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {fetchCharacter} from 'services/thierry-api.js'
@@ -25,14 +26,16 @@ export default function Character() {
         id={character?._id}
         linkTO={''}
       />
-      <div>
-        {character?.comics?.length > 0 ? (
-          <h2>{`Comics liés a ${character?.name}`}</h2>
-        ) : (
-          <h2>{`Auncun comics liés a ${character?.name}`}</h2>
-        )}
-        <DisplayComicsById comicsIds={character?.comics} />
+      <div className="character-comicsband">
+        <div>
+          {character?.comics?.length > 0 ? (
+            <h2>{`Comics liés a ${character?.name}`}</h2>
+          ) : (
+            <h2>{`Auncun comics liés a ${character?.name}`}</h2>
+          )}
+        </div>
       </div>
+      <DisplayComicsById comicsIds={character?.comics} />
     </div>
   )
 }

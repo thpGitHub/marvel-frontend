@@ -1,13 +1,10 @@
 import './Comics.css'
 import {useState, useEffect} from 'react'
-// import {Link} from 'react-router-dom'
 import {fetchAllComics} from 'services/thierry-api'
-// import {fetchAllComics} from '../../services/thierry-api'
 import Card from 'components/card'
 
 export default function Comics() {
   const [comics, setComics] = useState([])
-  // const [isLoading, setIsLoading] = useState(true)
   const [searchComics, setSearchComics] = useState('')
 
   useEffect(() => {
@@ -32,19 +29,9 @@ export default function Comics() {
         />
       </div>
       <div>
-        {/* {comics?.results?.map(comic => {
-          return (
-            <div key={comic._id}>
-              <Link to={`/comic/${comic._id}`}>
-                <div>{comic.title}</div>
-              </Link>
-            </div>
-          )
-        })} */}
         <div className="comics-card-container">
           {comics?.results?.map(comic => {
             return (
-              //src={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
               <Card
                 picturePath={`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`}
                 name={comic.title}

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {fetchComic} from 'services/thierry-api'
-// import {fetchComic} from '../../services/thierry-api'
+import Card from 'components/card'
 
 export default function Comic() {
   const {id} = useParams()
@@ -15,5 +15,15 @@ export default function Comic() {
     })
   }, [id])
 
-  return <div>{comic?.title}</div>
+  return (
+    <div>
+      <Card
+        picturePath={`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`}
+        name={comic?.name}
+        description={comic?.description}
+        id={comic?._id}
+        linkTO={''}
+      />
+    </div>
+  )
 }

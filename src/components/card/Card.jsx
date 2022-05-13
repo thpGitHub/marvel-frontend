@@ -8,7 +8,7 @@ export default function Card({picturePath, name, description, id, linkTO}) {
           <img src={picturePath} alt="figure character" />
         </figure>
         <div className="card-description">
-          <span>{name}</span>
+          <h3>{name}</h3>
           <p className="description">{description}</p>
         </div>
       </Link>
