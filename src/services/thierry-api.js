@@ -90,6 +90,3 @@ export {fetchAllComics, fetchAllCharacters, fetchCharacter, fetchComic, fetchCom
 //         console.log(error);
 //     }
 // }
-
-
-// https://thierry-api-marvel.herokuapp.com/5fce13e078edeb0017c92dbb

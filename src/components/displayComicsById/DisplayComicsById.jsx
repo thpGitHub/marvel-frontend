@@ -1,5 +1,7 @@
+import './DisplayComicsById.css'
 import {useState, useEffect} from 'react'
 import {fetchComicsByIds} from 'services/thierry-api'
+import Card from 'components/card'
 
 export default function DisplayComicsById({comicsIds}) {
   const [comicsList, setComicsList] = useState()
@@ -13,10 +15,23 @@ export default function DisplayComicsById({comicsIds}) {
   }, [comicsIds])
 
   return (
-    <div>
-      {comicsList?.map(comicList => {
-        return <div keys={comicList.data._id}> {comicList.data.title}</div>
-      })}
-    </div>
+          
+      <div className="displayComicsById-card-container">
+        {comicsList?.map(comicList => {
+          
+          return (
+            //
+            <Card
+              picturePath={`${comicList?.data?.thumbnail?.path}.${comicList?.data?.thumbnail?.extension}`}
+              name={comicList?.data?.title}
+              description={comicList?.data?.description}
+              id={comicList?.data?._id}
+              linkTO={'#'}
+              key={comicList?.data?._id}
+            />
+          )
+        })}
+      </div>
+    
   )
 }
