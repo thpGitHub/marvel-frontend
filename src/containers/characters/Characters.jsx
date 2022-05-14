@@ -3,12 +3,17 @@ import {useState, useEffect} from 'react'
 import {fetchAllCharacters} from 'services/thierry-api'
 import Card from 'components/card/Card'
 
-export default function Characters() {
+export default function Characters({
+  favoritesidCookies,
+  setFavoritesidCookies,
+  favoriteCharacterID,
+  setFavoriteCharacterID
+}) {
   const [characters, setCharacters] = useState([])
-  //   const [isLoading, setIsLoading] = useState(true)
   const [searchCharacters, setSearchCharacters] = useState('')
 
   useEffect(() => {
+    
     fetchAllCharacters(searchCharacters).then(characters => {
       setCharacters(characters)
     })
@@ -34,12 +39,16 @@ export default function Characters() {
         {characters?.results?.map(character => {
           return (
             <Card
+              from="character"
               picturePath={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
               name={character.name}
               description={character.description}
               id={character._id}
               linkTO={`/character/${character._id}`}
               key={character._id}
+              favoritesidCookies={favoritesidCookies}
+              setFavoritesidCookies={setFavoritesidCookies}
+              favoriteCharacterID={favoriteCharacterID}setFavoriteCharacterID={setFavoriteCharacterID}
             />
           )
         })}

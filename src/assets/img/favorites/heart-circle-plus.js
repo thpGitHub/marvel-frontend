@@ -1,0 +1,1 @@
+export {default} from './heart-circle-plus-solid.svg'

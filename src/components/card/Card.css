@@ -8,13 +8,15 @@
     height: 20rem;
     width: 18rem;
     text-align: center;
+    position: relative;
 }
-.card img {
+.card img:not(.card-favorite) {
     width: 18rem;
     height: 20rem;
     object-fit: cover;
     transition: transform 1.5s;
     border-radius: 10px 10px 0 0;
+    object-position: 50% 0;
 }
 .card img:hover {
     transform: scale(1.1);
@@ -41,4 +43,10 @@
 .card a {
     text-decoration: none;
     color: #202020;
+}
+.card-favorite {
+    top: 0.5rem;
+    right: 0.5rem;
+    height: 2rem;
+    position: absolute;
 }

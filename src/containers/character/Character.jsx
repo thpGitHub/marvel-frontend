@@ -12,7 +12,6 @@ export default function Character() {
 
   useEffect(() => {
     fetchCharacter(id).then(charac => {
-      console.log('character === ', charac)
       setCharacter(charac)
     })
   }, [id])

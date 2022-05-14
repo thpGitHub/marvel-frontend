@@ -24,22 +24,34 @@ const fetchComic = async id => {
     console.log(error)
   }
 }
-
+/*
+* charactersIds = ["id character", "id character",  ...]
+*/
+const fetchCharactersByIds = async charactersIds => {
+  try {
+      const test = []
+      for(let i=0; i< charactersIds.length; i++) {
+          const response = await axios.get(`https://thierry-api-marvel.herokuapp.com/character/${charactersIds[i]}`,)
+          console.log('responce fetchCharactersByIds', response)
+          test.push(response)
+      }
+      return await test
+  } catch (error) {
+      
+  }
+}
+/*
+* comicsIds = ["id comic", "id comic",  ...]
+*/
 const fetchComicsByIds = async comicsIds => {
     try {
         const test = []
         for(let i=0; i< comicsIds.length; i++) {
             const response = await axios.get(`https://thierry-api-marvel.herokuapp.com/comic/${comicsIds[i]}`,)
-            console.log('responce ==========', response)
+            console.log('responce fetchComicsByIds', response)
             test.push(response)
-            console.log('test ==', test);
         }
         return await test
-        // comicsIds.forEach(comicId => {
-        //     console.log('toto')
-            
-        // })
-        //array1.forEach(element => console.log(element));
     } catch (error) {
         
     }
@@ -77,7 +89,7 @@ const fetchCharacter = async id => {
   }
 }
 
-export {fetchAllComics, fetchAllCharacters, fetchCharacter, fetchComic, fetchComicsByIds}
+export {fetchAllComics, fetchAllCharacters, fetchCharacter, fetchComic, fetchComicsByIds, fetchCharactersByIds}
 
 // Cette requete fonctionne avec api heroku
 

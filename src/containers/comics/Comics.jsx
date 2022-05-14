@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import {fetchAllComics} from 'services/thierry-api'
 import Card from 'components/card'
 
-export default function Comics() {
+export default function Comics({favoriteComicID, setFavoriteComicID}) {
   const [comics, setComics] = useState([])
   const [searchComics, setSearchComics] = useState('')
 
@@ -33,12 +33,15 @@ export default function Comics() {
           {comics?.results?.map(comic => {
             return (
               <Card
+                from="comics"
                 picturePath={`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`}
                 name={comic.title}
                 description={comic.description}
                 id={comic._id}
                 linkTO={`/comic/${comic._id}`}
                 key={comic._id}
+                favoriteComicID={favoriteComicID}
+                setFavoriteComicID={setFavoriteComicID}
               />
             )
           })}

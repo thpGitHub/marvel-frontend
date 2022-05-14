@@ -10,7 +10,6 @@ export default function Comic() {
 
   useEffect(() => {
     fetchComic(id).then(comic => {
-      console.log('comic === ', comic)
       setComic(comic)
     })
   }, [id])
