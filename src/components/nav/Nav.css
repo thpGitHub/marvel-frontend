@@ -18,3 +18,17 @@
 .link:hover {
     color: #ec1d24;
 }
+.favoris-container {
+    display: flex;
+    position: relative;
+}
+.counter-favoris {
+    position: absolute;
+    background: #ec1d24;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    padding: 0.4rem;
+    right: 0;
+    top: -1rem;
+}

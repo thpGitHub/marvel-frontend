@@ -1,11 +1,18 @@
 import './Character.css'
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import {fetchCharacter} from 'services/thierry-api.js'
+// ** Components **
 import Card from 'components/card/Card'
 import DisplayComicsById from 'components/displayComicsById'
+// ** Services **
+import {fetchCharacter} from 'services/thierry-api.js'
 
-export default function Character() {
+export default function Character({
+  favoriteComicID,
+  setFavoriteComicID,
+  favoriteCharacterID,
+  setFavoriteCharacterID,
+}) {
   const {id} = useParams()
 
   const [character, setCharacter] = useState()
@@ -19,11 +26,16 @@ export default function Character() {
   return (
     <div>
       <Card
-        picturePath={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
-        name={character?.name}
-        description={character?.description}
         id={character?._id}
+        from="character"
+        name={character?.name}
         linkTO={''}
+        description={character?.description}
+        picturePath={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
+        favoriteComicID={favoriteComicID}
+        setFavoriteComicID={setFavoriteComicID}
+        favoriteCharacterID={favoriteCharacterID}
+        setFavoriteCharacterID={setFavoriteCharacterID}
       />
       <div className="character-comicsband">
         <div>
@@ -34,7 +46,11 @@ export default function Character() {
           )}
         </div>
       </div>
-      <DisplayComicsById comicsIds={character?.comics} />
+      <DisplayComicsById
+        comicsIds={character?.comics}
+        favoriteComicID={favoriteComicID}
+        setFavoriteComicID={setFavoriteComicID}
+      />
     </div>
   )
 }

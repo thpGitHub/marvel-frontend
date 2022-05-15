@@ -1,9 +1,15 @@
 import './DisplayComicsById.css'
 import {useState, useEffect} from 'react'
-import {fetchComicsByIds} from 'services/thierry-api'
+// ** Components **
 import Card from 'components/card'
+// ** Services **
+import {fetchComicsByIds} from 'services/thierry-api'
 
-export default function DisplayComicsById({comicsIds}) {
+export default function DisplayComicsById({
+  comicsIds,
+  favoriteComicID,
+  setFavoriteComicID,
+}) {
   const [comicsList, setComicsList] = useState()
 
   useEffect(() => {
@@ -14,23 +20,23 @@ export default function DisplayComicsById({comicsIds}) {
   }, [comicsIds])
 
   return (
-          
-      <div className="displayComicsById-card-container">
-        {comicsList?.map(comicList => {
-          
-          return (
-            //
-            <Card
-              picturePath={`${comicList?.data?.thumbnail?.path}.${comicList?.data?.thumbnail?.extension}`}
-              name={comicList?.data?.title}
-              description={comicList?.data?.description}
-              id={comicList?.data?._id}
-              linkTO={'#'}
-              key={comicList?.data?._id}
-            />
-          )
-        })}
-      </div>
-    
+    <div className="displayComicsById-card-container">
+      {comicsList?.map(comicList => {
+        return (
+          //
+          <Card
+            id={comicList?.data?._id}
+            key={comicList?.data?._id}
+            from="display-comics"
+            name={comicList?.data?.title}
+            linkTO={'#'}
+            description={comicList?.data?.description}
+            picturePath={`${comicList?.data?.thumbnail?.path}.${comicList?.data?.thumbnail?.extension}`}
+            favoriteComicID={favoriteComicID}
+            setFavoriteComicID={setFavoriteComicID}
+          />
+        )
+      })}
+    </div>
   )
 }

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     margin-top: 2rem;
     justify-content: center;
+    position: relative;
 }
 .card figure {
     height: 20rem;
@@ -45,8 +46,9 @@
     color: #202020;
 }
 .card-favorite {
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 1rem;
+    right: 1.5rem;
     height: 2rem;
     position: absolute;
+    cursor: pointer;
 }

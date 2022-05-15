@@ -1,19 +1,20 @@
 import './Characters.css'
 import {useState, useEffect} from 'react'
-import {fetchAllCharacters} from 'services/thierry-api'
+// ** Components **
 import Card from 'components/card/Card'
+// ** Services **
+import {fetchAllCharacters} from 'services/thierry-api'
 
 export default function Characters({
   favoritesidCookies,
-  setFavoritesidCookies,
   favoriteCharacterID,
-  setFavoriteCharacterID
+  setFavoritesidCookies,
+  setFavoriteCharacterID,
 }) {
   const [characters, setCharacters] = useState([])
   const [searchCharacters, setSearchCharacters] = useState('')
 
   useEffect(() => {
-    
     fetchAllCharacters(searchCharacters).then(characters => {
       setCharacters(characters)
     })
@@ -29,9 +30,9 @@ export default function Characters({
         <h2>MARVEL CHARACTERS LIST</h2>
         <input
           type="search"
-          placeholder="SEARCH"
           value={searchCharacters}
           onChange={handleChangeInput}
+          placeholder="SEARCH"
         />
       </div>
 
@@ -39,16 +40,17 @@ export default function Characters({
         {characters?.results?.map(character => {
           return (
             <Card
-              from="character"
-              picturePath={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
-              name={character.name}
-              description={character.description}
               id={character._id}
-              linkTO={`/character/${character._id}`}
               key={character._id}
+              from="characters"
+              name={character.name}
+              linkTO={`/character/${character._id}`}
+              description={character.description}
+              picturePath={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
               favoritesidCookies={favoritesidCookies}
               setFavoritesidCookies={setFavoritesidCookies}
-              favoriteCharacterID={favoriteCharacterID}setFavoriteCharacterID={setFavoriteCharacterID}
+              favoriteCharacterID={favoriteCharacterID}
+              setFavoriteCharacterID={setFavoriteCharacterID}
             />
           )
         })}

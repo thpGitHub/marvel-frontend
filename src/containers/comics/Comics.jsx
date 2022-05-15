@@ -1,7 +1,9 @@
 import './Comics.css'
 import {useState, useEffect} from 'react'
-import {fetchAllComics} from 'services/thierry-api'
+// ** Components **
 import Card from 'components/card'
+// ** Services **
+import {fetchAllComics} from 'services/thierry-api'
 
 export default function Comics({favoriteComicID, setFavoriteComicID}) {
   const [comics, setComics] = useState([])
@@ -23,9 +25,9 @@ export default function Comics({favoriteComicID, setFavoriteComicID}) {
         <h2>COMICS LIST</h2>
         <input
           type="search"
-          placeholder="SEARCH"
           value={searchComics}
           onChange={handleChangeInput}
+          placeholder="SEARCH"
         />
       </div>
       <div>
@@ -33,13 +35,13 @@ export default function Comics({favoriteComicID, setFavoriteComicID}) {
           {comics?.results?.map(comic => {
             return (
               <Card
-                from="comics"
-                picturePath={`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`}
-                name={comic.title}
-                description={comic.description}
                 id={comic._id}
-                linkTO={`/comic/${comic._id}`}
                 key={comic._id}
+                from="comics"
+                name={comic.title}
+                linkTO={`/comic/${comic._id}`}
+                description={comic.description}
+                picturePath={`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`}
                 favoriteComicID={favoriteComicID}
                 setFavoriteComicID={setFavoriteComicID}
               />

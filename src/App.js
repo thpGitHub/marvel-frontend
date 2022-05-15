@@ -13,7 +13,7 @@ import Favoris from './containers/favoris'
 import NotFound from './containers/notFound'
 // ** Vendor **
 import Cookies from 'js-cookie'
-// ** Service ***
+// ** Services ***
 
 function App() {
   const [favoritesidCookies, setFavoritesidCookies] = useState([])
@@ -22,31 +22,34 @@ function App() {
   const [favoriteComicID, setFavoriteComicID] = useState([])
 
   /**
-   * get cookies
+   * get cookies characters
    */
   useEffect(() => {
     let responseCookie = Cookies.get('ListFavoritesIdsCharacters')
     if (responseCookie) {
       let responseCookie_parse_array = JSON.parse(responseCookie)
-      
+
       setFavoriteCharacterID(responseCookie_parse_array)
     }
   }, [])
-
+  /**
+   * get cookies comics
+   */
   useEffect(() => {
     let responseCookie = Cookies.get('ListFavoritesIdsComics')
     if (responseCookie) {
       let responseCookie_parse_array = JSON.parse(responseCookie)
-      
+
       setFavoriteComicID(responseCookie_parse_array)
     }
   }, [])
 
-
   return (
     <Router>
       <Header />
-      <Nav />
+      <Nav
+        lengthFavoris={favoriteCharacterID.length + favoriteComicID.length}
+      />
       <Routes>
         <Route
           path="/"
@@ -59,7 +62,17 @@ function App() {
             />
           }
         />
-        <Route path="/character/:id" element={<Character />} />
+        <Route
+          path="/character/:id"
+          element={
+            <Character
+              favoriteComicID={favoriteComicID}
+              setFavoriteComicID={setFavoriteComicID}
+              favoriteCharacterID={favoriteCharacterID}
+              setFavoriteCharacterID={setFavoriteCharacterID}
+            />
+          }
+        />
         <Route
           path="/comics"
           element={
@@ -69,7 +82,15 @@ function App() {
             />
           }
         />
-        <Route path="/comic/:id" element={<Comic />} />
+        <Route
+          path="/comic/:id"
+          element={
+            <Comic
+              favoriteComicID={favoriteComicID}
+              setFavoriteComicID={setFavoriteComicID}
+            />
+          }
+        />
         <Route
           path="/favoris"
           element={
