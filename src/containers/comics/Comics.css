@@ -8,3 +8,6 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.comics-header {
+    outline: none;
+}

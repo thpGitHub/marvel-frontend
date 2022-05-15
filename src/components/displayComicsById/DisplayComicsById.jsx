@@ -13,7 +13,6 @@ export default function DisplayComicsById({
   const [comicsList, setComicsList] = useState()
 
   useEffect(() => {
-    console.log('comicsIds', comicsIds)
     fetchComicsByIds(comicsIds).then(toto => {
       setComicsList(toto)
     })

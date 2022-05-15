@@ -8,3 +8,6 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.characters-header input{
+    outline:none
+}
