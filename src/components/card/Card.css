@@ -3,6 +3,9 @@
     flex-wrap: wrap;
     margin-top: 2rem;
     justify-content: center;
+    /* position: relative; */
+}
+.card-container {
     position: relative;
 }
 .card figure {
@@ -44,6 +47,7 @@
 .card a {
     text-decoration: none;
     color: #202020;
+    /* position: relative; */
 }
 .card-favorite {
     top: 1rem;

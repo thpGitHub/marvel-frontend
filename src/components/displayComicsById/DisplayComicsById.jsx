@@ -21,12 +21,12 @@ export default function DisplayComicsById({
 
   return (
     <div className="displayComicsById-card-container">
-      {comicsList?.map(comicList => {
+      {comicsList?.map((comicList, index) => {
         return (
           //
           <Card
             id={comicList?.data?._id}
-            key={comicList?.data?._id}
+            key={comicList?.data?._id ?? index}
             from="display-comics"
             name={comicList?.data?.title}
             linkTO={'#'}

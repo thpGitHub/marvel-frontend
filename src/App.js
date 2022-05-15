@@ -100,6 +100,7 @@ function App() {
               favoriteCharacterID={favoriteCharacterID}
               setFavoriteCharacterID={setFavoriteCharacterID}
               favoriteComicID={favoriteComicID}
+              setFavoriteComicID={setFavoriteComicID}
             />
           }
         />
