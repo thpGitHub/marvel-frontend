@@ -51,4 +51,5 @@
     height: 2rem;
     position: absolute;
     cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(4095%) hue-rotate(345deg) brightness(91%) contrast(105%);
 }

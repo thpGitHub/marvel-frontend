@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 // ** Vendor **
 import Cookies from 'js-cookie'
@@ -20,8 +20,31 @@ export default function Card({
   setFavoriteCharacterID,
 }) {
   const [favoriteExist, setFavoriteExist] = useState(false)
+  const [displayFavoriteImg, setDisplayFavoriteImg] = useState('')
 
-  const handleCookie = () => {
+  useEffect(() => {
+    if (favoriteCharacterID?.includes(id) || favoriteComicID?.includes(id)) {
+      console.log('include id ===', id)
+      setDisplayFavoriteImg(HeartMinus)
+    } else {
+      setDisplayFavoriteImg(HeartPlus)
+    }
+  }, [favoriteCharacterID, favoriteComicID, id])
+
+  const handleCookie = (e) => {
+    console.log('e target ===', e.target.src);
+
+    /**
+     * witch favorite icone is display ?
+     * if "minus" delete cookie
+     * if "plus" create cookie
+     */
+    if(e.target.src.includes('minus')) {
+      console.log(('minus in src URL'));
+      /**
+     * delete cookie for character
+     */
+    }
     /**
      * Create cookie for character
      */
@@ -68,7 +91,7 @@ export default function Card({
         </div>
       </Link>
       <img
-        src={favoriteExist ? HeartMinus : HeartPlus}
+        src={displayFavoriteImg}
         alt="figure heart plus"
         onClick={handleCookie}
         className="card-favorite"

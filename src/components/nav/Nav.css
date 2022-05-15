@@ -23,12 +23,14 @@
     position: relative;
 }
 .counter-favoris {
+    top: -1rem;
+    color: #FFFFFF;
+    right: 0;
+    width: 1.5rem;
+    height: 1.5rem;
     position: absolute;
     background: #ec1d24;
-    color: #FFFFFF;
+    text-align: center;
+    padding-top: 0.05rem;
     border-radius: 50%;
-    font-size: 0.9rem;
-    padding: 0.4rem;
-    right: 0;
-    top: -1rem;
 }

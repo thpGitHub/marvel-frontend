@@ -42,6 +42,7 @@ export default function Favoris({favoriteCharacterID, favoriteComicID}) {
               linkTO={'#'}
               description={favorite?.data?.description}
               picturePath={`${favorite?.data?.thumbnail?.path}.${favorite?.data?.thumbnail?.extension}`}
+              favoriteCharacterID={favoriteCharacterID}
             />
           )
         })}
@@ -65,6 +66,8 @@ export default function Favoris({favoriteCharacterID, favoriteComicID}) {
               linkTO={'#'}
               description={favorite?.data?.description}
               picturePath={`${favorite?.data?.thumbnail?.path}.${favorite?.data?.thumbnail?.extension}`}
+              // favoriteCharacterID={favoriteCharacterID}
+              favoriteComicID={favoriteComicID}
             />
           )
         })}
